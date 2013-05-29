@@ -3,15 +3,14 @@
 
     if (!$.fn) throw "poop (no jQuery)";  // requires jQuery equivalent
 
-    // load stupidly simple templating function.
-    var _ = {
-        'template': function (str, data) {
+
+    var template = function (str, data) {
+            // load simple templating function.
             return str.replace(/\{\{([\s\S]+?)\}\}/g, function (v) {
                 return data[$.trim(v.substr(2).slice(0, -2))];
             });
-        }},
-        numAttribs = function (obj) {
-            // stackoverflow.com/questions/126100
+        },
+        numAttribs = function (obj) {  // stackoverflow.com/questions/126100
             var count = 0;
             for (var k in obj) {
                 if (obj.hasOwnProperty(k)) {
@@ -30,22 +29,19 @@
                     // if you have e.g. data-foo="($('.post').length >= 5)"
                     try {
                         data[_key] = eval(data[_key]);
-                    } catch (err) {
-                        // it was not an expression.
-                    }
+                    } catch (err) { /* it was not an expression. */ }
                 }
             }
             if (numAttribs(data)) {
-                $targetElement.html(_.template(markup, data));
+                $targetElement.html(template(markup, data));
             }
         };
 
-    $(function () {
+    $(function () {  // stall until DOM ready
         $('.template', this).each(function () {
             var $target = $(this),
                 data = $target.data() || {},
-                templateSrc = data['template-src'] || data.templateSrc || '',
-                template = '';
+                templateSrc = data['template-src'] || data.templateSrc || '';
 
             if (templateSrc) {
                 $.ajax({
@@ -56,17 +52,13 @@
                     success: function (templateMarkup) {
                         applyTemplate($target, data, templateMarkup);
                     },
-                    error: function () {
-                        // "no template" fallback
+                    error: function () {  // "no template" fallback
                         applyTemplate($target, data);
                     }
                 });
-            } else {
-                // immediate
+            } else {  // immediate
                 applyTemplate($target, data);
             }
         });
     });
-
-    window._ = _;
 }(this, this.jQuery || {}));
