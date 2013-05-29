@@ -6,13 +6,29 @@
     <script type="text/javascript" src="auto-template.js"></script>
 </head>
 <body>
-    <div class="template">Hello world! (no template data)</div>
-    <div class="template" data-str="This is a static template variable. (1/2)">{{ str }}</div>
-    <div class="template" data-str="This is a static template variable. (2/2)">{{str}}</div>
-    <div class="template" data-str="'This is a dynamic template variable.'.toUpperCase()">{{ str }}</div>
-    <div class="template" data-one="Multiple" data-two="substitutions">{{ one }} {{ two }} should also be possible.</div>
-    <div class="template" data-template-src="random_template.html">This is an external template.</div>
-    <div class="template" data-template-src="random_template.html"
-            data-wat=", too">This is an external template{{ wat }}.</div>
+    <div class="template">
+        Hello world! (no template data)
+    </div>
+    <div class="template" data-str="This is a static template variable. (1/2)">
+        {{ str }}
+    </div>
+    <div class="template" data-str="This is a static template variable. (2/2)">
+        {{str}}
+    </div>
+    <div class="template" data-str="'This is a dynamic template variable.'.toUpperCase()">
+        {{ str }}
+    </div>
+    <div class="template" data-one="Multiple" data-two="substitutions">
+        {{ one }} {{ two }} should also be possible.
+    </div>
+    <div class="template" data-template-src="random_template.html">
+        This is an external template.
+    </div>
+    <div class="template" data-template-src="random_template.html" data-wat=", too">
+        This is an external template{{ wat }}.
+    </div>
+    <div class="template" data-template-src="404.html">
+        The template for this element is missing, but the original content is still viewable.
+    </div>
 </body>
 </html>
