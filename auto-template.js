@@ -1,4 +1,14 @@
 (function (context, $) {
+    /*
+     * .template    (no data-template-src)      no other data
+     *  => no effect
+     * .template    (no data-template-src)      has other data
+     *  => innerHTML used as template
+     * .template    (data-template-src)         no other data
+     *  => template becomes innerHTML
+     * .template    (data-template-src)         has other data
+     *  => template becomes innerHTML, with data rendering the template
+     */
     "use strict";
 
     if (!$.fn) throw "poop (no jQuery)";  // requires jQuery equivalent
@@ -50,7 +60,13 @@
                     username: data.username || '',
                     password: data.password || '',
                     success: function (templateMarkup) {
-                        applyTemplate($target, data, templateMarkup);
+                        applyTemplate(
+                            $target,
+                            {
+                                'contents': template($target.html(), data)
+                            },
+                            templateMarkup
+                        );
                     },
                     error: function () {  // "no template" fallback
                         applyTemplate($target, data);
