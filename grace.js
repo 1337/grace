@@ -16,7 +16,7 @@
         throw new Error('poop (no jQuery)');
     }
 
-    ohNo(!!!);
+    I can do this
 
     /**
      * Load simple templating function.
