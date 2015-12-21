@@ -1,0 +1,22 @@
+{
+  "name": "grace",
+  "version": "1.0.0",
+  "description": "Templating engine for poor network conditions",
+  "main": "grace.js",
+  "scripts": {
+    "test": "jshint grace.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/1337/grace.git"
+  },
+  "author": "Brian <lpppppl@gmail.com> (http://ohai.ca)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/1337/grace/issues"
+  },
+  "homepage": "https://github.com/1337/grace",
+  "devDependencies": {
+    "jshint": "2.9.1-rc1"
+  }
+}

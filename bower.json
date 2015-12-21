@@ -1,0 +1,21 @@
+{
+  "name": "grace",
+  "homepage": "https://github.com/1337/grace",
+  "authors": [
+    "-"
+  ],
+  "description": "Templating engine for poor network conditions",
+  "main": "grace.js",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": ">1.5"
+  }
+}
