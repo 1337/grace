@@ -16,7 +16,7 @@
         throw new Error('poop (no jQuery)');
     }
 
-    ohNo()
+    ohNo(!!!);
 
     /**
      * Load simple templating function.
