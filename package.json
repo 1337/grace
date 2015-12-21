@@ -1,5 +1,5 @@
 {
-  "name": "grace",
+  "name": "grace-js",
   "version": "1.0.0",
   "description": "Templating engine for poor network conditions",
   "main": "grace.js",
